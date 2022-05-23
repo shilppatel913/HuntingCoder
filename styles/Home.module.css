@@ -114,3 +114,14 @@
     flex-direction: column;
   }
 }
+
+.mainnav ul{
+  display:flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.mainnav ul li{
+  margin:0px 23px;
+  font-weight:bold;
+}
