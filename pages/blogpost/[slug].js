@@ -1,21 +1,52 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { useRouter } from 'next/router'
 import styles from '../../styles/Blog.module.css' 
+import * as fs from 'fs';
 
-const slug = () => {
-    const router=useRouter()
-    const {slug}=router.query
+const Slug = (props) => {
+  const router=useRouter()
+    const [blog,setBlog]=useState(props.myBlog);
+    // useEffect(()=>{
+     
+    // },[router.isReady])
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-      <h1>Title of the page {slug}</h1>
+      <h1>{blog && blog.title}</h1>
       <hr/>
       <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+      {blog && blog.content}
       </div>
       </main>
     </div> 
   )
 }
 
-export default slug
+// export async function getServerSideProps(context) {
+//   const {slug}=context.query
+//   let data=await fetch(`http://localhost:3000/api/getBlog?slug=${slug}`)
+//   let response=await data.json()
+//   return {
+//     props: {response}, // will be passed to the page component as props
+//   }
+// }
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { slug : "how-to-learn-javascript"} },
+      { params: { slug : "how-to-learn-nodejs"} },
+      { params: { slug : "how-to-learn-nextjs"} },
+    ],
+    fallback: true // false or 'blocking'
+  };
+}
+export async function getStaticProps(context) {
+  const {slug}=context.params;
+  let myBlog=await fs.promises.readFile(`blogdata/${slug}.json`,'utf-8');
+  console.log(myBlog)
+    // console.log(data);
+  return {
+    props: {myBlog:JSON.parse(myBlog)}, // will be passed to the page component as props
+  }
+}
+export default Slug

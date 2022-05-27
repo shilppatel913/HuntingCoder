@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 // import Dummy from '../Components/Dummy'
@@ -23,7 +23,8 @@ export default function Home() {
           <span>Hunting Coder</span>
         </h1>
       <div className={styles.imageWrap}>
-        <Image src="/huntingcoder.webp" width={462} height={280}></Image>
+        {/* <Image src="/huntingcoder.webp" width={462} height={280}></Image> */}
+        <img src="/huntingcoder.web" width={462} height={280} alt="" className="src" />
       </div>
         <h2 className={styles.description}>
         Popular Blogs
