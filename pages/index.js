@@ -24,7 +24,7 @@ export default function Home() {
         </h1>
       <div className={styles.imageWrap}>
         {/* <Image src="/huntingcoder.webp" width={462} height={280}></Image> */}
-        <img src="/huntingcoder.web" width={462} height={280} alt="" className="src" />
+        <img src="/huntingcoder.webp" width={462} height={280} alt="" className="src" />
       </div>
         <h2 className={styles.description}>
         Popular Blogs
