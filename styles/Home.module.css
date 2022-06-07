@@ -128,3 +128,9 @@
 .imageWrap{
   padding:10px
 }
+
+.image{
+  width: 148px;
+  height: 133px;
+  border-radius: 88px
+}

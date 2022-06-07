@@ -48,23 +48,24 @@ const Contact = () => {
     <>
     <div className={styles.container}>
     <h1>Contact us</h1>
-    <form onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
     <div className={styles.mb3}>
-    <label htmlFor="exampleInputName" className="form-label">Name</label>
-    <input type="text" value={name} onChange={handleChange} className="form-control" id="name" name="name" aria-describedby="emailHelp"/>
+    <label className={styles.label} htmlFor="exampleInputName" >Name</label>
+    <input className={styles.input} type="text" value={name} onChange={handleChange} id="name" name="name" aria-describedby="emailHelp"/>
   </div>
   <div className={styles.mb3}>
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="text" value={email} onChange={handleChange} className="form-control" id="email" name="email" aria-describedby="emailHelp"/>
+    <label className={styles.label} htmlFor="exampleInputEmail1" >Email address</label>
+    <input className={styles.input} type="text" value={email} onChange={handleChange} id="email" name="email" aria-describedby="emailHelp"/>
   </div>
   <div className={styles.mb3}>
-    <label htmlFor="exampleInputPhonenumber" className="form-label">Password</label>
-    <input type="text" value={phone} onChange={handleChange} className="form-control" name="phone" id="phone"/>
+    <label className={styles.label} htmlFor="exampleInputPhonenumber">Password</label>
+    <input  className={styles.input} type="text" value={phone} onChange={handleChange} name="phone" id="phone"/>
   </div>
   <div className={styles.mb3}>
-  <textarea value={desc} onChange={handleChange} className="form-control" placeholder="Leave a comment here" name="desc" id="desc"></textarea>
+  <label className={styles.label} htmlFor="exampleDescription">Enter Your query</label>
+  <textarea className={styles.input} value={desc} onChange={handleChange} placeholder="Leave a comment here" name="desc" id="desc"></textarea>
 </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+  <button type="submit" className={styles.btn}>Submit</button>
 </form>
 </div>
 </>
